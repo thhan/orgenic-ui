@@ -26,6 +26,10 @@ export class OgTextInput {
      */
     @Event() valueChanged: EventEmitter<string>;
 
+    /**
+     * Event is being emitted when value changes.
+     */
+    @Event() update: EventEmitter<string>;
 
     /**
      * Event is being emitted when input gets focus..
@@ -40,6 +44,7 @@ export class OgTextInput {
     handleChange(e) {
         this.value = e.target.value;
         this.valueChanged.emit(this.value);
+        this.update.emit(this.value);
     }
 
     hostData() {
